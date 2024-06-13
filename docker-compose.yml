@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=development
+    networks:
+      networkMongo:
+        ipv4_address: 172.21.0.2
+  
+networks:
+  networkMongo:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.21.0.0/24"
+          gateway: "172.21.0.1"
+  
+
+volumes:
+  data:
