@@ -1,2 +1,1 @@
-#MySQL
-# mysqltutorial
+# MySQLtutorial
